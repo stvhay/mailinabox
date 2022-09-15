@@ -38,9 +38,8 @@ hide_output pip3 install --upgrade b2sdk boto3
 inst_dir=/usr/local/lib/mailinabox
 mkdir -p $inst_dir
 venv=$inst_dir/env
-if [ ! -d $venv ]; then
-	hide_output virtualenv -ppython3 $venv
-fi
+rm -rf $venv
+hide_output virtualenv -ppython3 $venv
 
 # Upgrade pip because the Ubuntu-packaged version is out of date.
 hide_output $venv/bin/pip install --upgrade pip
